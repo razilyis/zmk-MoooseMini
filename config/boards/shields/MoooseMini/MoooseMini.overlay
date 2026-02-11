@@ -80,7 +80,6 @@
         y-input-code = <INPUT_REL_Y>;
         // disable force-awake
         // force-awake;
-        disable-burst-read;
     };
 };
 
