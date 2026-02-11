@@ -124,7 +124,7 @@
 
         LOWER {
             bindings = <
-&kp 3  &kp ESC  &kp LG(LEFT)  &kp LG(UP)  &kp ENTER  &kp LG(DOWN)  &kp LG(RIGHT)  &kp SPACE  &none
+&studio_unlock  &kp ESC  &kp LG(LEFT)  &kp LG(UP)  &kp ENTER  &kp LG(DOWN)  &kp LG(RIGHT)  &kp SPACE  &none
             >;
 
             sensor-bindings = <&rot_runtime 0 0>;
