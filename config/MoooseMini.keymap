@@ -101,7 +101,7 @@
             #sensor-binding-cells = <0>;
             tap-ms = <20>;
             cw-binding = <&kp LC(TAB)>;
-            ccw-binding = <&kp LC(LS(TAB)>;
+            ccw-binding = <&kp LC(LS(TAB))>;
         };
         rsr_vol: rsr_vol {
             compatible = "zmk,behavior-runtime-sensor-rotate";
