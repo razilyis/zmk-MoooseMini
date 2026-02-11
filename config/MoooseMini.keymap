@@ -5,6 +5,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <behaviors/runtime-sensor-rotate.dtsi>
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
@@ -93,6 +94,36 @@
 
             tap-ms = <20>;
         };
+
+        // Runtime Sensor Rotate Instances
+        rsr_nav: rsr_nav {
+            compatible = "zmk,behavior-runtime-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <20>;
+            cw-binding = <&kp LC(TAB)>;
+            ccw-binding = <&kp LC(LS(TAB)>;
+        };
+        rsr_vol: rsr_vol {
+            compatible = "zmk,behavior-runtime-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <20>;
+            cw-binding = <&kp C_VOL_UP>;
+            ccw-binding = <&kp C_VOL_DN>;
+        };
+        rsr_scroll_h: rsr_scroll_h {
+            compatible = "zmk,behavior-runtime-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <20>;
+            cw-binding = <&msc SCRL_RIGHT>;
+            ccw-binding = <&msc SCRL_LEFT>;
+        };
+        rsr_scroll_v: rsr_scroll_v {
+            compatible = "zmk,behavior-runtime-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <20>;
+            cw-binding = <&msc SCRL_UP>;
+            ccw-binding = <&msc SCRL_DOWN>;
+        };
     };
 
     keymap {
@@ -103,7 +134,7 @@
 &kp C_MUTE  &lt_to_layer_0 1 ESC  &mkp LCLK  &mkp RCLK  &lt_to_layer_0 2 ENTER  &mkp MCLK  &kp BACKSPACE  &lt_to_layer_0 3 SPACE  &lt_to_layer_0 4 ESC
             >;
 
-            sensor-bindings = <&rot_runtime 0 0>;
+            sensor-bindings = <&rsr_scroll_v>;
         };
 
         UPPER {
@@ -111,7 +142,7 @@
 &kp 1  &kp ESC  &kp LC(LS(TAB))  &kp LC(TAB)  &kp ENTER  &kp LC(W)  &kp LC(T)  &kp SPACE  &none
             >;
 
-            sensor-bindings = <&rot_runtime 0 0>;
+            sensor-bindings = <&rsr_nav>;
         };
 
         MID {
@@ -119,7 +150,7 @@
 &kp 2  &kp ESC  &kp LEFT  &kp UP  &kp ENTER  &kp DOWN  &kp RIGHT  &kp SPACE  &none
             >;
 
-            sensor-bindings = <&rot_runtime 0 0>;
+            sensor-bindings = <&rsr_vol>;
         };
 
         LOWER {
@@ -127,7 +158,7 @@
 &studio_unlock  &kp ESC  &kp LG(LEFT)  &kp LG(UP)  &kp ENTER  &kp LG(DOWN)  &kp LG(RIGHT)  &kp SPACE  &none
             >;
 
-            sensor-bindings = <&rot_runtime 0 0>;
+            sensor-bindings = <&rsr_scroll_h>;
         };
 
         TACT {
@@ -135,7 +166,7 @@
 &bootloader  &bt BT_SEL 1  &bt BT_CLR_ALL  &bt BT_SEL 4  &bt BT_SEL 2  &bt BT_CLR  &bt BT_SEL 5  &bt BT_SEL 3  &studio_unlock
             >;
 
-            sensor-bindings = <&rot_runtime 0 0>;
+            sensor-bindings = <&rsr_scroll_v>;
         };
     };
 };
